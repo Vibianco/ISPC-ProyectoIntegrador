@@ -4,9 +4,6 @@ Proyecto para el grupo de estudio del ISPC
 
 Integrantes:
 
-        Vanesa Manzanelli 
-        Caro Pómpolo Maria Fernanda  
-        Rebechi Franco Ezequiel    
         Bianco Viviana Lucia 
         Arana Braian Fabian 
         Maria Cuenca 
