@@ -1,57 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiRifa.net</title>
-    <link rel="stylesheet" href="./carrito.component.css">
-
-</head>
-
-<body>
-    <header>
-        <img src="../../../assets/Logo-mirifa2.png" alt="logorifa" class="logomirifa">
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <li><a href="#">RIFAS ACTUALES</a></li>
-                <li><a href="#">INGRESA</a></li>
-</ul>
-<img src="../../../assets/carrito.png" alt="carrito" class="cart-icon">
-</nav>
-    </header>
-    <main>
-        <section id="rifa1">
-            <div class="rifa-info">
-                <h1>Mi carrito</h1>
-                <img src="../../../assets/Logo-mirifa2.png" alt="logorifa">
-                <h2>Rifa 1</h2>
-                <p>10 $Valor</p>
-
-            </div>
-            <div class="rifa2-info">
-                <img src="../../../assets/Logo-mirifa2.png" alt="logorifa">
-                <h2>Rifa 2</h2>
-                <p>5 $Valor</p>
-
-            </div>
-
-            <div class="cupon">
-                <h1>Cupon de descuento</h1>
-                <a href="#">Aplicar</a>
-            </div>
-
-        </section>
-        <section id="Pagos">
-            <div class="metodopago">
-                <p>Tarjeta de credito</p>
-                <p>Tarjeta de debito</p>
-                <p>Efectivo</p>
-                <a href="#">Finalizar</a>
-
-            </div>
-
-        </section>
-    </main>
-</body>
-</html>
+<section>
+    <div id="miCarrito">
+        Mi carrito
+        <div class="carritoRifas">
+            <img src="/assets/Logo-mirifa2.png" alt="Rifa" class="d-inline-block imgCarrito">
+            <p>Rifa 1</p>
+            <p>12</p>
+            <p>$500</p>
+            <img src="/assets/basura.png" alt="Basura" class="d-inline-block imgCarrito">
+        </div>
+        <div class="carritoRifas">
+            <img src="/assets/Logo-mirifa2.png" alt="Rifa" class="d-inline-block imgCarrito">
+            <p>Rifa 2</p>
+            <p>10</p>
+            <p>$800</p>
+            <img src="/assets/basura.png" alt="Basura" class="d-inline-block imgCarrito">
+        </div>
+        <div class="cuponDes">
+            <p>Cupon de descuento</p>
+            <input type="text" name="cupon" class="cuponCampo">
+            <input type="button" value="Aplicar" class="cuponBoton">
+        </div>
+    </div>
+    <div id="metodoPago">
+        Métodos de pago
+        <div class="carritoPago">
+            Tarjeta de credito
+        </div>
+        <div class="carritoPago">
+            Tarjeta de debito
+        </div>
+        <div class="carritoPago">
+            Efectivo
+        </div>
+    </div>
+</section>

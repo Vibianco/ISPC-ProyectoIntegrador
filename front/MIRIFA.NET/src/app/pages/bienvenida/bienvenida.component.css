@@ -1,15 +1,6 @@
-/*Aca poner el css de index*/
-.body1{ 
-    background: url("/assets/fondo2.jpg") no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    
-}
-
-
 ol li{
     list-style: decimal;
-    margin: 1.5em   
+    margin: 1.5em;  
 }
 
 .boton1{
@@ -20,19 +11,17 @@ ol li{
     background-color: #A4D9D0;
     border-radius: 10em;    
 }
-   
 
 .letra{
     font-weight: bolder;
     text-align: center;
-    font-size: 4vmax;
+    font-size: 3em;
     margin: 1.5em;
 }
 
-
 .numero {
     font-weight: bolder;
-    font-size: 1.7vmax;
+    font-size: 1.5em;
     background-color: #E5EBEA;
     border-radius: 1.5em;
     width:fit-content;
@@ -40,7 +29,7 @@ ol li{
 
 .premio {
     font-weight: bolder;
-    font-size: 1.7vmax;
+    font-size: 1.5em;
     background-color: #E5EBEA;
     border-radius: 1.5em;
     width:fit-content;
@@ -48,7 +37,7 @@ ol li{
 
 .pago{
     font-weight: bolder;
-    font-size: 1.7vmax;
+    font-size: 1.5em;
     background-color: #E5EBEA;
     border-radius: 1.5em;
     width:fit-content;
