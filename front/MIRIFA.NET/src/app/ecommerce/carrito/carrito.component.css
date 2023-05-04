@@ -1,1 +1,62 @@
-/*Poner, hacer css de carrito*/
+section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#miCarrito, #metodoPago{
+    border-radius: 1em;
+    padding-left: 0.1em;
+    margin: 5em;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carritoRifas, .carritoPago, .cuponDes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 1em;
+    padding-left: 0.4em;
+    margin-bottom: 0.2em;
+    height: 4em;
+    width: 20em;
+}
+
+.cuponDes{
+    margin-top: 2em;
+}
+
+.cuponCampo{
+    border: 0.1em solid rgb(82, 81, 81); 
+    border-radius: 1em;
+    width: 8em;
+}
+
+.cuponBoton{
+    padding: 0.4em;
+    margin: 1em;
+    color: white;
+    font-size: small;
+    border: 0.1em;
+    background-color: #313e50;
+    border-radius: 1em;
+}
+
+.carritoRifas p, .cuponDes p{
+    margin: auto;
+    align-self:center;
+}
+
+.carritoPago:hover{
+    background-color: #9b9a9a;
+    transition: 0.5s;
+}
+
+.imgCarrito{
+    height: 2em;
+}
