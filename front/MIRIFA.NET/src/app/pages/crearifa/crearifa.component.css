@@ -1,0 +1,28 @@
+.content {
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+label {
+    font-weight: bold;
+}
+
+.info_final {
+    
+    border: 3px solid #328a87;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+
+.boton{
+    background-color: #313e50; 
+    color: #FFFF;
+    text-decoration: none;
+    font-size: 1em;
+    border: 0.9em;
+    border-radius: 10em;
+    margin: 1em;
+}
