@@ -1,12 +1,21 @@
-<p>bienvenida works!
-    <br>
-    <br>
-    Aca poner el codigo html del index sin la nav y footer
-    <br>
-    En el boton de crear rifa, en lugar de    ||href="./rifas_formulario.html"|| <br>
 
-    Hay que poner   ||routerLink="/crearifa"||
-    <br>
-    No hay necesidad de usar la etiqueta link para linkear el css, se hace solo
-</p>
+<div class="container-index">
+    <section>
+      <p>
+          <h1 class="letra text-center fw-bolder">DESCUBRI LA NUEVA FORMA DE RIFAR</h1>
+      </p>
+  </section>
+  <ol>
+      <li class="numero">Eliges la cantidad de números de tu Rifa.</li>
+      <li class="premio">Ingresas los premios y fecha del sorteo.</li>
+      <li class="pago">Colocas donde quieres recibir el pago.</li>
+  </ol>
 
+<section class="botonrifa">
+  <!-- <form action="">
+       <input type="button" value="CREA TU RIFA" class="boton1">
+  </form> -->
+  <a class="btn btn-primary btn-lg" role="button" routerlink="/crearifa" style="background-color: #313e50; border-color: #313e50">CREA TU RIFA</a>
+
+</section>
+  </div>
