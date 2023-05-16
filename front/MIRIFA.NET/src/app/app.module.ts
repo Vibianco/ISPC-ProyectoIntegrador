@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
 import { PagesModule } from './pages/pages.module';
+import { ServicioMirifaService } from './servicio-mirifa.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { PagesModule } from './pages/pages.module';
     EcommerceModule,
     PagesModule
   ],
-  providers: [],
+  providers: [ServicioMirifaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

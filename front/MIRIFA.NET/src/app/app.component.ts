@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioMirifaService } from './servicio-mirifa.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MIRIFA.NET';
+
+  constructor(private miServicio:ServicioMirifaService){}
+
+  this.miServicio.muestraMensaje("Tu registro ha sido exitoso")
 }
+
+

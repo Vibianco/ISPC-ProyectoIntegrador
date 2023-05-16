@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CrearifaComponent {
 
+
+  constructor(private miServicio:ServicioMirifaService){}
+
+  add(miServicio: string) {
+    this.miServicio.muestraMensaje.push(miServicio);
+  }
 }

@@ -20,4 +20,6 @@ describe('RegistroComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+);
+
