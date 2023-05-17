@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
 import { PagesModule } from './pages/pages.module';
+import { ServicioMirifaService } from './servicio-mirifa.service';
+import { ServicioCarritoService } from './servicio-carrito.service';
+import { ServicioUsuarioService } from './servicio-usuario.service';
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +24,7 @@ import { PagesModule } from './pages/pages.module';
     EcommerceModule,
     PagesModule
   ],
-  providers: [],
+  providers: [ServicioMirifaService,ServicioCarritoService,ServicioUsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class RegistroComponent {
 
+
+  constructor(private Miservicio:ServicioUsuarioService){}
+
+  add(Miservicio: string) {
+    this.MiServicio.muestraMensaje.push(Miservicio);
+  }
 }
