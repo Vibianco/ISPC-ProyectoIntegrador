@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioCarritoService } from 'src/app/servicio-carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -8,9 +9,9 @@ import { Component } from '@angular/core';
 export class CarritoComponent {
 
 
-  constructor(private miServicio:ServicioMirifaService){}
+  constructor(private miServicio:ServicioCarritoService){}
 
-  add(miServicio: string) {
-    this.miServicio.muestraMensaje.push(miServicio);
+  add(miServis: string) {
+    this.miServis.muestraMensaje.push(miServis);
   }
 }

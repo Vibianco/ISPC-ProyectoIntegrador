@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class RegistroComponent {
 
 
-  constructor(private miServicio:ServicioMirifaService){}
+  constructor(private Miservicio:ServicioUsuarioService){}
 
-  add(miServicio: string) {
-    this.miServicio.muestraMensaje.push(miServicio);
+  add(Miservicio: string) {
+    this.MiServicio.muestraMensaje.push(Miservicio);
   }
 }
