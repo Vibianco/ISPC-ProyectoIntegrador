@@ -11,7 +11,6 @@ section{
     width: 30em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -23,8 +22,14 @@ section{
     border-radius: 1em;
     padding-left: 0.4em;
     margin-bottom: 0.2em;
+    max-width: 80%;
+    min-width: 80%;
+    min-height: 4em;
+}
+
+.carritoPago{
     height: 4em;
-    width: 20em;
+    width: fit-content;
 }
 
 .cuponDes{
@@ -48,8 +53,11 @@ section{
 }
 
 .carritoRifas p, .cuponDes p{
+    font-size: 0.9em;
     margin: auto;
     align-self:center;
+    max-width: 6em;
+    width: 6em;
 }
 
 .carritoPago:hover{
@@ -59,4 +67,18 @@ section{
 
 .imgCarrito{
     height: 2em;
+}
+
+button{
+    border: none;
+    background: none;
+}
+
+.agregar{
+    margin-top: 1em;
+    height: 1em;
+}
+
+.numero{
+    text-align: center;
 }

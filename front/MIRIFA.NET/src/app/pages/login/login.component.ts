@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServicioUsuarioService } from 'src/app/servicio-usuario.service';
+import { ServicioUsuarioService } from 'src/app/Servicios/servicio-usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,4 @@ export class LoginComponent {
 
   constructor(private Miservicio:ServicioUsuarioService){}
 
-  add(Miservicio: string) {
-    this.MiServicio.muestraMensaje.push(Miservicio);
-  }
 }
