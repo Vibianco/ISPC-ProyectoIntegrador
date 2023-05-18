@@ -1,0 +1,21 @@
+{"rifasCarrito": [
+    {
+      "id": 0,
+      "titulo": "Escuela IPEM n°745",
+      "numeros": 46,
+      "valor": 500
+    },
+    {
+      "id": 1,
+      "titulo": "Veterinaria SALUD",
+      "numeros": 15,
+      "valor": 204
+    },
+    {
+      "id": 2,
+      "titulo": "Guarderia CUIDAMOS PARA TODOS y TODAS",
+      "numeros": 36,
+      "valor": 1250
+    }
+  ]
+}
