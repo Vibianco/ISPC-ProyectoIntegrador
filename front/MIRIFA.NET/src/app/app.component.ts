@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ServicioMirifaService } from './servicio-mirifa.service';
-import { ServicioCarritoService } from './servicio-carrito.service';
-import { ServicioUsuarioService } from './servicio-usuario.service';
+import { ServicioCarritoService } from './Servicios/servicio-carrito.service';
+import { ServicioMirifaService } from './Servicios/servicio-mirifa.service';
+import { ServicioUsuarioService } from './Servicios/servicio-usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -13,13 +13,6 @@ export class AppComponent {
 
   constructor(private miServicio:ServicioMirifaService){}
 
-  this.miServicio.muestraMensaje("Tu registro ha sido exitoso")
-
-  constructor (private miServis:ServicioCarritoService)
-  this.miServis.muestraMensaje("Tu compra ha sido exitosa")
-
-  constructor(private Miservicio:ServicioUsuarioService)
-  this.Miservicio.muestraMensaje("Tu registro ha sido exitoso")
 }
 
 
