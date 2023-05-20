@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServicioMirifaService {
 
-  constructor() { }
+export class ServicioMirifaService {
+  url:string="http://localhost:3000/"
+  constructor(private http:HttpClient) { }
+
+  ObtenerRifaActual (): Observable <any>{
+    return this.http.get(this.url+"listaRifasActuales")
+  }
 
   muestraMensaje (mensaje:string){
 
