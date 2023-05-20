@@ -33,35 +33,40 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+
 }
 
 .p_fila{
     opacity: 0.5;
-    color: white;
-    background-color: #a6a6a6;
-    width: 10em;
-    height: 10em;
-    border-radius: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3em 2em;
-}
-
-.s_fila{
-    opacity: 0.5;
-    color: white;
+    color: rgb(0, 0, 0);
     background-color: #3f7973;
-    width: 10em;
-    height: 10em;
-    border-radius: 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 3em 2em;
+    width: 40em;
+    height: 20em;
+    border-radius: 2em;
+    margin: 2em 2em;
+   
 }
 
-.p_fila:hover, .s_fila:hover{
+.p_fila:hover {
     opacity: 1.0;
 }
+
+button{
+    border: none;
+    background: none;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 2em;
+  
+}
+
+.agregar{
+   
+    margin-top: 2em;
+    height: 2em;
+    border-radius: 2em;
+    margin: 2em 2em;
+    
+}
+
+
