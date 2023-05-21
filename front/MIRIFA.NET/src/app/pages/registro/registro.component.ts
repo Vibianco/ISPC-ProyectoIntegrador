@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioUsuarioService } from 'src/app/Servicios/servicio-usuario.service';
 
 @Component({
   selector: 'app-registro',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
+  constructor(private Miservicio:ServicioUsuarioService){}
 
 }
