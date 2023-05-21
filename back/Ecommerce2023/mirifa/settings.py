@@ -79,9 +79,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mirifa',
         'USER': 'root',
-        'PASSWORD': 'Nirvana17**',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '33065',
     }
 }
 

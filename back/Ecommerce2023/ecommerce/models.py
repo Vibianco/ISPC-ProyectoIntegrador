@@ -17,7 +17,7 @@ class Provincia(models.Model):
 
 
 class Usuario(models.Model):
-    id_usuario = models.IntegerField(primary_key=True,null=False)
+    id_usuario = models.AutoField(primary_key=True,null=False)
     dni = models.IntegerField(null=False)
     nombre = models.CharField(max_length=50,null=False)
     apellido = models.CharField(max_length=50,null=False)
@@ -38,7 +38,7 @@ class Usuario(models.Model):
 
 
 class Medio_Pago(models.Model):
-    id_medio_pago = models.IntegerField(primary_key=True,null=False)
+    id_medio_pago = models.AutoField(primary_key=True,null=False)
     nombre = models.CharField(max_length=45,null=False)
 
     def __unicode__(self):
@@ -51,7 +51,7 @@ class Medio_Pago(models.Model):
 
 
 class Factura(models.Model):
-    id_factura = models.IntegerField(primary_key=True,null=False)
+    id_factura = models.AutoField(primary_key=True,null=False)
     id_usuario = models.ForeignKey(Usuario,to_field ='id_usuario',null=True,on_delete=models.CASCADE)
     total = models.DecimalField(max_digits=10,default=0,decimal_places=2)
     fecha = models.DateField(auto_now_add=True)
@@ -70,10 +70,10 @@ class Rifa(models.Model):
     motivo = models.CharField(max_length=100,null=False)
     organizador = models.CharField(max_length=45,null=False)
     premio1 = models.CharField(max_length=100,null=False)
-    premio2 = models.CharField(max_length=100,null=False)
-    premio3 = models.CharField(max_length=100,null=False)
+    premio2 = models.CharField(max_length=100)
+    premio3 = models.CharField(max_length=100)
     cantidad_rifas = models.IntegerField(null=False)
-    valor = models.DecimalField(max_digits=4,null=False,decimal_places=2)
+    valor = models.DecimalField(max_digits=8,null=False,decimal_places=2)
     #fecha_sorteo = models.DateField(input_formats=settings.DATE_INPUT_FORMATS)
     id_organizador = models.IntegerField()
 
