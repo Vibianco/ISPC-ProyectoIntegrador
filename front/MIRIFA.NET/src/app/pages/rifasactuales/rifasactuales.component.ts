@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioMirifaService } from 'src/app/Servicios/servicio-mirifa.service';
 
 @Component({
   selector: 'app-rifasactuales',
