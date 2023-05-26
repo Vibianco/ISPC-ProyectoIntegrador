@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-import { ServicioMirifaService } from 'src/app/Servicios/servicio-mirifa.service';
-=======
 import { Component, OnInit } from '@angular/core';
 import { ServicioMirifaService } from 'src/app/Servicios/servicio-mirifa.service';
-
->>>>>>> develop
 
 @Component({
   selector: 'app-rifasactuales',
