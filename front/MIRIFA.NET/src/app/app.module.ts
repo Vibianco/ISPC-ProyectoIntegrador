@@ -10,6 +10,7 @@ import { ServicioMirifaService } from './Servicios/servicio-mirifa.service';
 import { ServicioCarritoService } from './Servicios/servicio-carrito.service';
 import { ServicioUsuarioService } from './Servicios/servicio-usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     EcommerceModule,
     PagesModule, 
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ServicioMirifaService,ServicioCarritoService,ServicioUsuarioService],
   bootstrap: [AppComponent]
