@@ -39,6 +39,15 @@ input {
     outline: 0 none;
 }
 
+.inputForm{
+    width: 16.2em;
+    border: solid 0.1em grey;
+    border-radius: 0.5em;
+    display: block;
+    margin: auto;
+    margin-bottom: 1em;
+}
+
 .registrate {
     color: blue;
 }
