@@ -1,7 +1,20 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializer import ProvinciaSerializer, Numeros_RifasSerializer, VentaSerializer, Medio_PagoSerializer
-from .models import Provincia, Numeros_Rifas, Venta, Medio_Pago
+from .serializer import ProvinciaSerializer, Numeros_RifasSerializer, VentaSerializer, Medio_PagoSerializer, UsuarioSerializer, FacturaSerializer, RifaSerializer
+from .models import Provincia, Numeros_Rifas, Venta, Medio_Pago, Usuario, Factura, Rifa
+
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+
+class FacturaViewSet(viewsets.ModelViewSet):
+    queryset = Factura.objects.all()
+    serializer_class = FacturaSerializer
+
+class RifaViewSet(viewsets.ModelViewSet):
+    queryset = Rifa.objects.all()
+    serializer_class = RifaSerializer
+
 
 class ProvinciaViewSet(viewsets.ModelViewSet):
  queryset=Provincia.objects.all()
