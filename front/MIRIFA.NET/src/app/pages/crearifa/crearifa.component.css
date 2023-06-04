@@ -1,28 +1,59 @@
-.content {
-    width: 100%;
+h2{
+    padding-top: 1em;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
 }
 
-label {
-    font-weight: bold;
+form{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
 }
 
-.info_final {
-    
-    border: 3px solid #328a87;
-    border-radius: 10px;
-    margin-top: 50px;
-    padding: 10px;
+.inputForm, textarea{
+    width: 16.2em;
+    border: solid 0.1em grey;
+    border-radius: 0.5em;
+    display: block;
+    margin: auto;
+    margin-bottom: 1em;
 }
 
+.primerC, .segundaC, .tercerC{
+    height: fit-content;
+    width: 25em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contenedorAdver{
+    border:solid 0.2em #328A87;
+    border-radius: 1em;
+}
+
+.contenedorAdver p{
+    text-align: center;
+    margin: 0.5em;
+}
+
+.primerC img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img{
+    height: 20em;
+}
 
 .boton{
-    background-color: #313e50; 
-    color: #FFFF;
-    text-decoration: none;
-    font-size: 1em;
-    border: 0.9em;
-    border-radius: 10em;
-    margin: 1em;
+    display: block;
+    height: 2.5em;
+    width: 5em;
+    margin: auto;
+    margin-top: 2em;
+    background-color: #313E50;
+    border: 0.1em transparent;
+    border-radius: 0.5em;
+    color: white;
 }

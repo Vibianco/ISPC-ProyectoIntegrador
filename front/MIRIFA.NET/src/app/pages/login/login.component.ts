@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { ServicioUsuarioService } from 'src/app/Servicios/servicio-usuario.service';
+<<<<<<< HEAD
 import { FormBuilder } from '@angular/forms';
 import {Validators} from '@angular/forms'
 
+=======
+>>>>>>> develop
 
 @Component({
   selector: 'app-login',
@@ -17,6 +20,7 @@ export class LoginComponent {
       user:['',[Validators.required, Validators.minLength(5)]],
       password:['',[Validators.required,Validators.minLength(8)]],
 
+<<<<<<< HEAD
     })
 
 
@@ -40,4 +44,6 @@ export class LoginComponent {
 
   constructor(private Miservicio:ServicioUsuarioService, private formBuilder:FormBuilder){}
 }
+=======
+>>>>>>> develop
 }
