@@ -45,23 +45,3 @@ class VentaAdmin(admin.ModelAdmin):
     list_display = ('id_venta','cantidad','descuento')
 
 admin.site.register(Venta, VentaAdmin)
-
-
-
-
-
-
-
-
-
-
-'''@admin.register(Usuario)
-class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('id_usuario','nombre','apellido','ciudad')
-    #ordering = ('nombre',)
-    search_fields = ('dni','apellido')
-    #list_editable = ('nombre','apellido')
-    list_display_links = ('apellido',)'''
-
-
-    

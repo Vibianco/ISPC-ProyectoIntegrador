@@ -3,14 +3,19 @@
         <div class="container mb-3 mt-1 mb-1">
             <h1 class="text-center">Ingresar</h1>
             <form class="needs-validation" novalidate >
-                
+              <form class="needs-validation" [formGroup]="LoginForm" (ngSubmit)="onEnviar($event)">
               <div class="form-group">
                   <label class="form-label" for="nombreusuario">Nombre de Usuario</label>
                   <input class="form-control rounded-pill" type="texto" id="nombreusuario" required>
                   <div class="valid-feedback">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input type="text" name="usuario" class="form-control inputForm {{valido}}" placeholder="Ingrese usuario" formControlName="user">
+                    <div *ngIf="usuario?.errors && usuario?.touched">
+                      <p *ngIf="usuario?.hasError('required')" class="usuario-error">
                     Nombre de Usuario correcto
                   </div>
                   <div class="invalid-feedback">
+                    <input type="text" name="usuario" class="form-control inputForm {{invalido}}" placeholder="Ingrese usuario" formControlName="user">
                     Completar Nombre de Usuario
                   </div> 
               </div>
@@ -19,9 +24,13 @@
                   <label class="form-label" for="password">Contraseña</label>
                   <input class="form-control rounded-pill" type="password" id="password" required>
                   <div class="valid-feedback">
+                    <input type="text" name="password" class="form-control inputForm {{valido}}" placeholder="ingrese contraseña" formControlName="password">
+                    <div *ngIf="contraseña?.errors && contraseña?.touched">
+                      <p *ngIf="contraseña?.hasError('required')" class="password-error">
                     Contraseña correcta
                   </div>
                   <div class="invalid-feedback">
+                    <input type="text" name="password" class="form-control inputForm {{invalido}}" placeholder="ingrese contraseña" formControlName="password">
                     Ingrese su Contraseña
                   </div>
               </div>
