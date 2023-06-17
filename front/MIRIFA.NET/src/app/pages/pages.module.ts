@@ -12,6 +12,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { TerminosComponent } from './terminos/terminos.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegistroComponent,
     TerminosComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
