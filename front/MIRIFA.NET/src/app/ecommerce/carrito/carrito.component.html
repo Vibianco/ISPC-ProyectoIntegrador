@@ -3,8 +3,8 @@
         Mi carrito
             <div class="carritoRifas" *ngFor="let element of carritoActual; let indice = index">
                 <img src="/assets/Logo-mirifa2.png" alt="Rifa" class="d-inline-block imgCarrito">
-                <p>{{element.titulo}}</p>
-                <p class="numero">{{element.numeros}}</p>
+                <p>{{element.username}}</p>
+                <p class="numero">{{element.email}}</p>
                 <p>{{element.valor|currency}}</p>
                 <button (click)="OnClickEliminar(indice)">
                     <img src="/assets/basura.png" alt="Basura" class="d-inline-block imgCarrito">
@@ -28,5 +28,6 @@
         <div class="carritoPago">
             Efectivo
         </div>
+        <button class="boton" type="submit" (click)="OnClick()">PROCEDER</button>
     </div>
 </section>

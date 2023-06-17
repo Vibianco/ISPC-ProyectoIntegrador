@@ -10,6 +10,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { CarritoComponent } from './ecommerce/carrito/carrito.component';
 import { TerminosComponent } from './pages/terminos/terminos.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { CompraComponent } from './ecommerce/compra/compra.component';
 
 const routes: Routes = [
   {path: '', component:BienvenidaComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegistroComponent},
   {path: 'carrito', component:CarritoComponent},
-  {path: 'terminos', component:TerminosComponent}
+  {path: 'terminos', component:TerminosComponent},
+  {path: 'profile', component:ProfileComponent},
+  {path: 'compra', component:CompraComponent}
 ];
 
 @NgModule({

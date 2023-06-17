@@ -105,11 +105,3 @@ class Venta(models.Model):
 
     def __unicode__(self):
         return self.id_venta
-
-
-
-
-
-
-
-    
