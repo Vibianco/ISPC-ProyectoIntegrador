@@ -3,11 +3,13 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework import status, generics, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import UserSerializer, ProvinciaSerializer, Numeros_RifasSerializer, VentaSerializer, Medio_PagoSerializer, UsuarioSerializer, FacturaSerializer, RifaSerializer
-from .models import Provincia, Numeros_Rifas, Venta, Medio_Pago, Usuario, Factura, Rifa, CustomUser
+from .serializer import UserSerializer, ProvinciaSerializer, Numeros_RifasSerializer, VentaSerializer, Medio_PagoSerializer, FacturaSerializer, RifaSerializer
+from .models import Provincia, Numeros_Rifas, Venta, Medio_Pago, Factura, Rifa, CustomUser
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
+from rest_framework.authtoken.models import Token
+from rest_framework.authentication import TokenAuthentication
 #import mercadopago
-import json
+#import json
 
 #Clases referidas al usuario
 class SigupView(generics.CreateAPIView):
@@ -17,13 +19,15 @@ class SigupView(generics.CreateAPIView):
 class LoginView(APIView):
     permission_classes = [AllowAny] 
     def post(self, request):
-        email = request.data.get('email', None)
+        username = request.data.get('username', None)
         password = request.data.get('password', None)
-        user = authenticate(email=email, password=password)
-        if user:
+        user = authenticate(username=username, password=password)
+        token,_=Token.objects.get_or_create(user=user)
+        if token:
             login(request, user)
-            return Response(
-                UserSerializer(user).data,
+            return Response({
+                'token': token.key
+            },
                 status=status.HTTP_200_OK
             )
         return Response(
@@ -33,14 +37,15 @@ class LoginView(APIView):
 class LogoutView(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
+        request.user.auth_token.delete()
         logout(request)
-
         return Response(
             status=status.HTTP_200_OK
         )
 
 class UserViewSet(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
     queryset=CustomUser.objects.all()
     serializer_class= UserSerializer
 
@@ -100,6 +105,8 @@ class UpdateRifa(generics.RetrieveUpdateAPIView):
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
+# Clases referidas a la pasarela de pagos (MercadoPago)
+
 # #class ProcessPaymentAPIView(APIView):
 #     def post(self, request):
 #         try:
@@ -134,28 +141,24 @@ class UpdateRifa(generics.RetrieveUpdateAPIView):
 #         except Exception as e:
 #             return Response(data={"body": payment_response}, status=400)
 
-class retornarPagado(APIView):  # Retornar custom json 
-    def get(self, request):
-        return Response({"respuesta": "aprobado"})
+# class retornarPagado(APIView):   
+#     def get(self, request):
+#         return Response({"respuesta": "aprobado"})
     
 #Return Custom json, reduzca el stock segun lo enviado.
-class customjsonybajarstock(APIView):
-    permission_classes = [IsAdminUser] #Solo permito admins.
-    def patch(self, request, pk, cantidad): #Utilizo patch para la modificacion parcial.
-        model = get_object_or_404(Rifa, pk=pk) #Pido el objeto mandandole el ID. 
-        data = {"cantidad": model.cantidad - int(cantidad)} #Del json, le resto la cantidad.
-        serializer = RifaSerializer(model, data=data, partial=True) #Paso la data al serializer.
+# class customjsonybajarstock(APIView):
+#     permission_classes = [IsAdminUser] 
+#     def patch(self, request, pk, cantidad): 
+#         model = get_object_or_404(Rifa, pk=pk)  
+#         data = {"cantidad": model.cantidad - int(cantidad)} 
+#         serializer = RifaSerializer(model, data=data, partial=True) 
 
-        if serializer.is_valid(): #Si es valido lo que mande
-            serializer.save() #Guardo el response (va a mandar el json del producto con la cantidad actualizada)
-            agregarcustomjson={"respuesta": "aprobado"}
-            agregarcustomjson.update(serializer.data)  #A ese json anterior, le agrego la respuesta de la transaccion.
-            return Response(agregarcustomjson)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class UsuarioViewSet(viewsets.ModelViewSet):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
+#         if serializer.is_valid(): 
+#             serializer.save() 
+#             agregarcustomjson={"respuesta": "aprobado"}
+#             agregarcustomjson.update(serializer.data)  
+#             return Response(agregarcustomjson)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class FacturaViewSet(viewsets.ModelViewSet):
     queryset = Factura.objects.all()

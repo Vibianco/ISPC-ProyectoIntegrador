@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
-from django.db import models
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
@@ -33,12 +32,6 @@ class UserSerializer(serializers.ModelSerializer):
     def validate_password(self, value):
         return make_password(value)
     
-class UsuarioSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Usuario
-    fields = '__all__'
-    #fields = ('dni','nombre','apellido')
-
 class FacturaSerializer(serializers.ModelSerializer):
   class Meta:
       model = Factura

@@ -25,8 +25,6 @@ SECRET_KEY = 'django-insecure-74)92ex#%exzoqy@j%1y601r@v!i8z#*s*8(sj2a^(_nnvw)0%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -38,11 +36,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
+    'django_rest_passwordreset',
     'ecommerce',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,12 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-]
-
-CORS_ALLOWED_ORIGINS = [
-    'httP://localhost',
 ]
 
 ROOT_URLCONF = 'mirifa.urls'
@@ -147,12 +142,16 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
         'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.AllowAny',
     ]
   
 }
 
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:4200",
+]
 CORS_ALLOW_CREDENTIALS = True
+SESSION_COOKIE_HTTPONLY=False
 
 #USE_L10N = False
 #DATE_INPUT_FORMATS = ['%d/%m/%Y'] 

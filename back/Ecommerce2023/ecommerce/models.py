@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.forms import forms
-
+       
 class CustomUser(AbstractUser):
     email = models.EmailField(
         max_length=150, unique=True
@@ -14,8 +14,8 @@ class CustomUser(AbstractUser):
     telefono = models.CharField(max_length=15,null=False)
     provincia = models.CharField(max_length=15,null=False)
     ciudad = models.CharField(max_length=45,null=False)
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'password']
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'password']
 
 # Create your models here.
 
@@ -30,26 +30,6 @@ class Provincia(models.Model):
         return self.provincia
     def __str__(self):
         return self.provincia
-
-class Usuario(models.Model):
-    id_usuario = models.AutoField(primary_key=True,null=False)
-    dni = models.IntegerField(null=False)
-    nombre = models.CharField(max_length=50,null=False)
-    apellido = models.CharField(max_length=50,null=False)
-    telefono = models.CharField(max_length=15,null=False)
-    id_provincia = models.ForeignKey(Provincia,to_field ='id_provincia',null=True,on_delete=models.CASCADE)
-    ciudad = models.CharField(max_length=45,null=False)
-    usuario = models.CharField(max_length=50,null=False)
-    email = models.EmailField(max_length=100,null=False)
-    password = models.CharField(max_length=45,null=False)
-    class Meta:
-        db_table="Usuario"
-        verbose_name="Usuarios registrados"
-        verbose_name_plural="Usuarios"
-    def __unicode__(self):
-        return self.nombre
-    def __str__(self):
-        return self.nombre
   
 class Medio_Pago(models.Model):
     id_medio_pago = models.AutoField(primary_key=True,null=False)
