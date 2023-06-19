@@ -26,8 +26,16 @@ urlpatterns = [
     path('rifa/list/', ListRifa.as_view(), name='listar_rifa'),
     path('rifa/delete/<int:id_rifa>', DeleteRifa.as_view(), name='eliminar_rifa'),
     path('rifa/update/<int:id_rifa>', UpdateRifa.as_view(), name='actualizar_rifa'),
+    path('rifa/filter/<str:nombre_sorteo>', ListRifaFilter.as_view(), name='filter_rifa'),
      
     path('auth/genToken', views.obtain_auth_token),
+
+    path('carrito/list/', ListCarrito.as_view(), name='listar_carrito'),
+    path('carrito/filter/<str:titulo_rifa>', ListCarritoFilter.as_view(), name='filter_rifa'),
+    path('carrito/add/', AddCarrito.as_view(), name='añadir_carrito'),
+    path('carrito/delete/<int:id_venta>', DeleteCarrito.as_view(), name='eliminar_carrito'),
+    path('carrito/update/<str:titulo_rifa>', UpdateCarrito.as_view(), name='actualizar_carrito'),
+
 
     #  path('retornarPagado/',
     #      retornarPagado.as_view(), name='retornarPagado'),

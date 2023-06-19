@@ -105,6 +105,62 @@ class UpdateRifa(generics.RetrieveUpdateAPIView):
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
+class ListRifaFilter(generics.RetrieveAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class = RifaSerializer
+    queryset = Rifa.objects.all()
+    lookup_field = "nombre_sorteo"
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
+
+# Clases referidas al carrito
+
+class ListCarrito(generics.ListAPIView):
+    permission_classes = [AllowAny]
+    queryset = Venta.objects.all()
+    serializer_class = VentaSerializer
+
+class AddCarrito(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request, format = None):
+        serializer = VentaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                serializer.data, status=status.HTTP_201_CREATED
+            )
+        return Response(
+            serializer.errors,status=status.HTTP_400_BAD_REQUEST
+        )
+
+class DeleteCarrito(generics.DestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = Venta.objects.all()
+    serializer_class = VentaSerializer
+    lookup_field = 'id_venta'
+
+    def delete(self, request, *args, **kwargs):
+        return super().delete(request, *args, **kwargs)
+
+class UpdateCarrito(generics.RetrieveUpdateAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class = VentaSerializer
+    queryset = Venta.objects.all()
+    lookup_field = 'titulo_rifa'
+
+    def update(self, request, *args, **kwargs):
+        return super().update(request, *args, **kwargs)
+
+class ListCarritoFilter(generics.RetrieveAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class = VentaSerializer
+    queryset = Venta.objects.all()
+    lookup_field = 'titulo_rifa'
+    
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
 # Clases referidas a la pasarela de pagos (MercadoPago)
 
 # #class ProcessPaymentAPIView(APIView):
