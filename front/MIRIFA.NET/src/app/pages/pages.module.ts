@@ -13,6 +13,8 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { UpdaterifaComponent } from './updaterifa/updaterifa.component';
 
 
 
@@ -28,6 +30,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegistroComponent,
     TerminosComponent,
     ProfileComponent,
+    UpdateuserComponent,
+    UpdaterifaComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +47,10 @@ import { ProfileComponent } from './profile/profile.component';
     FaqComponent,
     LoginComponent,
     RegistroComponent,
-    TerminosComponent
+    TerminosComponent,
+    ProfileComponent,
+    UpdateuserComponent,
+    UpdaterifaComponent,
   ]
 })
 export class PagesModule { }
