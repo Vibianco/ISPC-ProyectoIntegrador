@@ -14,9 +14,9 @@ class ProvinciaAdmin(admin.ModelAdmin):
     list_display = ('id_provincia','provincia')
 admin.site.register(Provincia, ProvinciaAdmin)
 
-class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('id_usuario','nombre','apellido','dni')
-admin.site.register(Usuario,UsuarioAdmin)
+# class UsuarioAdmin(admin.ModelAdmin):
+#     list_display = ('id_usuario','nombre','apellido','dni')
+# admin.site.register(Usuario,UsuarioAdmin)
 
 class Medio_PagoAdmin(admin.ModelAdmin):
     list_display = ('nombre','id_medio_pago')

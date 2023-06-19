@@ -45,7 +45,7 @@ class Medio_Pago(models.Model):
 
 class Factura(models.Model):
     id_factura = models.AutoField(primary_key=True,null=False)
-    id_usuario = models.ForeignKey(Usuario,to_field ='id_usuario',null=True,on_delete=models.CASCADE)
+    #id_usuario = models.ForeignKey(Usuario,to_field ='id_usuario',null=True,on_delete=models.CASCADE)
     total = models.DecimalField(max_digits=10,default=0,decimal_places=2)
     fecha = models.DateField(auto_now_add=True)
     fact_id_provincia = models.ForeignKey(Provincia,to_field ='id_provincia',null=True,on_delete=models.CASCADE)
