@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CarritoComponent } from './carrito/carrito.component';
 import { CompraComponent } from './compra/compra.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpcarritoComponent } from './upcarrito/upcarrito.component';
 
 
 @NgModule({
   declarations: [
     CarritoComponent,
-    CompraComponent
+    CompraComponent,
+    UpcarritoComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     CarritoComponent,
-    CompraComponent
+    CompraComponent,
+    UpcarritoComponent
   ]
 })
 export class EcommerceModule { }

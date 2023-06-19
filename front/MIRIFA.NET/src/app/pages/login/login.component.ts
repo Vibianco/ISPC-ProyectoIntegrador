@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioUsuarioService } from 'src/app/Servicios/servicio-usuario.service';
+import { AuthtokenService } from 'src/app/Servicios/auth/authtoken.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {Validators} from '@angular/forms'
 import { NgClass } from '@angular/common';
@@ -18,7 +19,9 @@ export class LoginComponent{
   });
 
   constructor(private Miservicio:ServicioUsuarioService, 
-    private formBuilder: FormBuilder){
+    private formBuilder: FormBuilder,
+    private auth: AuthtokenService,
+    private router: Router){
     }
 
   get Password(){
@@ -29,13 +32,17 @@ export class LoginComponent{
     return this.loginForm.get("username");
   }
 
+  
 
   onEnviar(event: Event){
     event.preventDefault;
     if(this.loginForm.valid){
       alert("Enviar al servidor...")
       console.log(this.loginForm.value)
-      this.Miservicio.EnviarUser(this.loginForm.value).subscribe()
+      this.Miservicio.EnviarUser(this.loginForm.value).subscribe(data =>{
+        this.auth.setToken(data.token)
+      })
+      this.router.navigate(['/profile'])
     }else{
       this.loginForm.markAllAsTouched();
       this.invalido = "is-invalid"

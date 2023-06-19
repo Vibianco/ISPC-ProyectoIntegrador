@@ -9,7 +9,7 @@ import { AuthtokenService } from './auth/authtoken.service';
 })
 
 export class ServicioMirifaService {
-  url:string="http://localhost:3000/"
+  url:string="http://localhost:8000/"
   httpOptions:any
 
   constructor(private http:HttpClient, private Auth: AuthtokenService) {
@@ -21,17 +21,23 @@ export class ServicioMirifaService {
     };
    }
 
-   ObtenerRifaActual (): Observable <any>{
+  ObtenerRifaActual (): Observable <any>{
     return this.http.get(this.url+"api/rifa/list/")
   }
+  ObtenerRifaFilter (rifa: string): Observable <any>{
+    return this.http.get(this.url+"api/rifa/filter/"+rifa, this.httpOptions)
+  }
   CrearRifa(rifa:object): Observable <any>{
-    return this.http.post(this.url+"api/rifa/add/",rifa, this.httpOptions)
+    return this.http.post(this.url+"api/rifa/add/", rifa, this.httpOptions)
   }
 
   EliminarRifas(id:number): Observable <any>{
     return this.http.delete(this.url+"api/rifa/delete/"+ id, this.httpOptions)
   }
 
+  UpdateRifas(titulo:string, rifa : object ): Observable <any>{
+    return this.http.put(this.url+"api/rifa/update/"+titulo,rifa,this.httpOptions)
+  }
 
   muestraMensaje (mensaje:string){
 
