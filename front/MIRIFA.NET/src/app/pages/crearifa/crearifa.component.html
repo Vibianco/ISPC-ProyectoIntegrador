@@ -10,8 +10,8 @@
     </div>
   </div>
     <div class="segundaC">
-      <label for="titulo" class="form-label">Titulo de la rifa</label>
-      <input type="text" name="titulo" class="form-control inputForm {{invalido}}" placeholder="¿Cómo quieres que se llame tu rifa?" formControlName="titulo">
+      <label for="nombre_sorteo" class="form-label">Titulo de la rifa</label>
+      <input type="text" name="titulo" class="form-control inputForm {{invalido}}" placeholder="¿Cómo quieres que se llame tu rifa?" formControlName="nombre_sorteo">
       <div *ngIf="Titulo?.errors && Titulo?.touched">
         <p *ngIf="Titulo?.hasError('required')" class="text-danger">
           Completar titulo de la rifa
@@ -21,8 +21,8 @@
         </p>
       </div> 
 
-      <label for="descripcion" class="d-block">Motivo de la rifa</label>
-      <textarea name="descripcion" class="form-control m-auto rounded-2 {{invalido}}" cols="30" rows="10" placeholder="Describe brevemente tu rifa" formControlName="descripcion"></textarea>
+      <label for="motivo" class="d-block">Motivo de la rifa</label>
+      <textarea name="motivo" class="form-control m-auto rounded-2 {{invalido}}" cols="30" rows="10" placeholder="Describe brevemente tu rifa" formControlName="motivo"></textarea>
       <div *ngIf="Descripcion?.errors && Descripcion?.touched">
         <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
           Completar descripcion de la rifa
@@ -66,25 +66,25 @@
     </div>
     <div class="tercerC">
       <label for="" class="d-block">Rifas a ofrecer</label>
-      <label for="numRifas">100</label>
-      <input type="radio" value="100" class="m-lg-2" name="numRifas" formControlName="numRifas">
+      <label for="cantidad_rifas">100</label>
+      <input type="radio" value="100" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas">
 
-      <label for="numRifas">200</label>
-      <input type="radio" value="200" class="m-lg-2" name="numRifas" formControlName="numRifas">
+      <label for="cantidad_rifas">200</label>
+      <input type="radio" value="200" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas">
 
-      <label for="numRifas">500</label>
-      <input type="radio" value="500" class="m-lg-2" name="numRifas" formControlName="numRifas">
+      <label for="cantidad_rifas">500</label>
+      <input type="radio" value="500" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas">
 
-      <label for="numRifas">1000</label>
-      <input type="radio" value="1000" class="m-lg-2" name="numRifas" formControlName="numRifas"> 
+      <label for="cantidad_rifas">1000</label>
+      <input type="radio" value="1000" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas"> 
       <div *ngIf="NumRifas?.errors && NumRifas?.touched">
         <p *ngIf="NumRifas?.hasError('required')" class="text-danger">
           Completar el numero de la rifas
         </p>
       </div>
 
-      <label for="monto" class="d-block">Valor de cada rifa</label>
-      <input type="number" class="form-control inputForm {{invalido}}" name="monto" formControlName="monto">
+      <label for="valor" class="d-block">Valor de cada rifa</label>
+      <input type="number" class="form-control inputForm {{invalido}}" name="valor" formControlName="valor">
       <div *ngIf="Monto?.errors && Monto?.touched">
         <p *ngIf="Monto?.hasError('required')" class="text-danger">
           Completar valor de la rifa
@@ -101,7 +101,7 @@
           Completar titular de la cuenta
         </p>
       </div>
-      <input type="number" class="form-control inputForm {{invalido}}" name="cbu" placeholder="CBU/CVU" formControlName="cbu">
+      <input type="text" class="form-control inputForm {{invalido}}" name="cbu" placeholder="CBU/CVU" formControlName="cbu">
       <div *ngIf="Cbu?.errors && Cbu?.touched">
         <p *ngIf="Cbu?.hasError('required')" class="text-danger">
           Completar CBU/CVU de la cuenta
@@ -117,8 +117,8 @@
         </p>
       </div>
 
-      <label for="">Finalización de la rifa</label>
-      <input type="date" class="form-control inputForm {{invalido}}" name="finalizacion" formControlName="fecha">
+      <label for="fecha_sorteo">Finalización de la rifa</label>
+      <input type="date" class="form-control inputForm {{invalido}}" name="finalizacion" formControlName="fecha_sorteo">
       <div *ngIf="Fecha?.errors && Fecha?.touched">
         <p *ngIf="Fecha?.hasError('required')" class="text-danger">
           Completar fecha de la rifa

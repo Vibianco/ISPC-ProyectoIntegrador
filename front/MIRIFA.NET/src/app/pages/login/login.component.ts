@@ -1,49 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServicioUsuarioService } from 'src/app/Servicios/servicio-usuario.service';
-<<<<<<< HEAD
-import { FormBuilder } from '@angular/forms';
+import { AuthtokenService } from 'src/app/Servicios/auth/authtoken.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {Validators} from '@angular/forms'
-
-=======
->>>>>>> develop
+import { NgClass } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent{
+  invalido=""
+  loginForm = this.formBuilder.group({
+    username:['',[Validators.required]],
+    password:['', [Validators.required ,Validators.minLength(8)]]
+  });
 
-  export class LoginComponent {
-    invalido = "";
-    LoginForm = this.formBuilder.group({
-      user:['',[Validators.required, Validators.minLength(5)]],
-      password:['',[Validators.required,Validators.minLength(8)]],
+  constructor(private Miservicio:ServicioUsuarioService, 
+    private formBuilder: FormBuilder,
+    private auth: AuthtokenService,
+    private router: Router){
+    }
 
-<<<<<<< HEAD
-    })
-
-
-  get user(){
-    return this.LoginForm.get("usuario")
+  get Password(){
+    return this.loginForm.get("password");
   }
-  get password(){
-    return this.LoginForm.get("contraseña")
+
+  get Usuario(){
+    return this.loginForm.get("username");
   }
- 
+
+  
 
   onEnviar(event: Event){
     event.preventDefault;
-    if(this.LoginForm.valid){
+    if(this.loginForm.valid){
       alert("Enviar al servidor...")
+      console.log(this.loginForm.value)
+      this.Miservicio.EnviarUser(this.loginForm.value).subscribe(data =>{
+        this.auth.setToken(data.token)
+      })
+      this.router.navigate(['/profile'])
     }else{
-      this.LoginForm.markAllAsTouched()
-      this.invalido = "is-invalid border-danger"
+      this.loginForm.markAllAsTouched();
+      this.invalido = "is-invalid"
     }
   }
-
-  constructor(private Miservicio:ServicioUsuarioService, private formBuilder:FormBuilder){}
-}
-=======
->>>>>>> develop
 }

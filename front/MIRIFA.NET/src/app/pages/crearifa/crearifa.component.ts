@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { ServicioCarritoService } from 'src/app/Servicios/servicio-carrito.service';
+import { ServicioMirifaService } from 'src/app/Servicios/servicio-mirifa.service';
+import { AuthtokenService } from 'src/app/Servicios/auth/authtoken.service';
 import { FormBuilder } from '@angular/forms';
 import {Validators} from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crearifa',
@@ -12,20 +14,24 @@ import {Validators} from '@angular/forms'
 export class CrearifaComponent {
   invalido = "";
   crearRifaForm = this.formBuilder.group({
-    titulo:['',[Validators.required, Validators.minLength(5)]],
-    descripcion:['',[Validators.required,Validators.minLength(20)]],
+    nombre_sorteo:['',[Validators.required, Validators.minLength(5)]],
+    motivo:['',[Validators.required,Validators.minLength(20)]],
     organizador:['',[Validators.required,Validators.minLength(5)]],
     premio1:['',[Validators.required,Validators.minLength(5)]],
     premio2:['',[Validators.required,Validators.minLength(5)]],
     premio3:['',[Validators.required,Validators.minLength(5)]],
-    numRifas:['',[Validators.required,Validators.min(100)]],
-    monto:['',[Validators.required,Validators.min(100)]],
+    cantidad_rifas:['',[Validators.required,Validators.min(100)]],
+    valor:['',[Validators.required,Validators.min(100)]],
     titular:['',[Validators.required,Validators.minLength(5)]],
     cbu:['',[Validators.required,Validators.minLength(22)]],
     banco:['',[Validators.required,Validators.minLength(5)]],
-    fecha:['',[Validators.required]],
+    fecha_sorteo:['',[Validators.required]],
   })
-  constructor(private miServicio:ServicioCarritoService, private formBuilder:FormBuilder){
+  constructor(private miServicio:ServicioMirifaService, 
+    private formBuilder:FormBuilder,
+    private auth: AuthtokenService,
+    private router: Router
+    ){
 
   }
   get Titulo(){
@@ -72,6 +78,9 @@ export class CrearifaComponent {
     event.preventDefault;
     if(this.crearRifaForm.valid){
       alert("Enviar al servidor...")
+      console.log(this.crearRifaForm.value)
+      this.miServicio.CrearRifa(this.crearRifaForm.value).subscribe()
+      this.router.navigate(['/rifasactuales'])
     }else{
       this.crearRifaForm.markAllAsTouched()
       this.invalido = "is-invalid border-danger"
