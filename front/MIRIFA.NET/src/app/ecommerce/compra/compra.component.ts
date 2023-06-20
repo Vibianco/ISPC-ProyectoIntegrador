@@ -48,7 +48,7 @@ export class CompraComponent {
   onEnviar(event: Event){
     event.preventDefault;
     if(this.compraForm.valid){
-      alert("Enviar al servidor...")
+      alert("Compra recibida")
     }else{
       this.compraForm.markAllAsTouched()
       this.invalido = "is-invalid border-danger"

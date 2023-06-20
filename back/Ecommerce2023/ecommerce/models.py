@@ -61,7 +61,7 @@ class Factura(models.Model):
 
 class Rifa(models.Model):
     id_rifa = models.AutoField(primary_key=True)
-    nombre_sorteo = models.CharField(max_length=100)
+    nombre_sorteo = models.CharField(max_length=100, unique=True)
     motivo = models.CharField(max_length=100,null=False)
     organizador = models.CharField(max_length=45,null=False)
     premio1 = models.CharField(max_length=100,null=False)
@@ -69,8 +69,8 @@ class Rifa(models.Model):
     premio3 = models.CharField(max_length=100)
     cantidad_rifas = models.IntegerField(null=False)
     valor = models.DecimalField(max_digits=8,null=False,decimal_places=2)
-#    fecha_sorteo = models.DateField(widget=forms.DateInput(format = '%d/%m/%Y'), input_formats=settings.DATE_INPUT_FORMATS)
-    id_organizador = models.IntegerField()
+    fecha_sorteo = models.DateField(null=True)
+    #id_organizador = models.IntegerField()
     class Meta:
         db_table="Rifa"
         verbose_name="Rifas creadas"
@@ -94,9 +94,9 @@ class Numeros_Rifas(models.Model):
 
 class Venta(models.Model):
     id_venta = models.AutoField(primary_key=True)
-    id_rifa = models.ForeignKey(Rifa,to_field='id_rifa',null=True,on_delete=models.CASCADE)
+    titulo_rifa = models.ForeignKey(Rifa,to_field='nombre_sorteo',null=True,on_delete=models.CASCADE)
     cantidad = models.DecimalField(null=False,decimal_places=2,default=0,max_digits=10)
-    id_factura = models.ForeignKey(Factura,to_field='id_factura',null=True,on_delete=models.CASCADE)
+    total = models.DecimalField(null=False,decimal_places=2,default=0,max_digits=10)
     descuento = models.DecimalField(null=False,decimal_places=2,default=0,max_digits=10)
     class Meta:
         db_table="Venta"
