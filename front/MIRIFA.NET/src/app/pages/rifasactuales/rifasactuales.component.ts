@@ -31,8 +31,7 @@ ObtenerRifa (){
   }
 
   onClick(titulo:string, total:number){
-    alert("Rifa: "+ titulo)
-    alert("Valor: "+ total)
+    alert("Rifa añadida al carrito")
     this.carrito.AñadirCarrito(titulo,total).subscribe()
   }
 

@@ -45,9 +45,16 @@ class LogoutView(APIView):
 
 class UserViewSet(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
-    authentication_classes = [TokenAuthentication]
     queryset=CustomUser.objects.all()
     serializer_class= UserSerializer
+
+class UserViewFilter(generics.RetrieveAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class= UserSerializer
+    queryset = CustomUser.objects.all()
+    lookup_field = "username"
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
 class UpdateUser(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated]
